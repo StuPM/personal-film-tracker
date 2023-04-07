@@ -1,0 +1,17 @@
+header {
+  border: 1px solid black;
+
+  h1 {
+    margin: 0;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+  }
+}
+
+.userIcon {
+  width: 50px;
+}

@@ -1,0 +1,24 @@
+.filmContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 99%;
+
+  border: 1px black solid;
+
+  .filmTile {
+    width: 50%;
+    position: relative;
+    // border: 1px black solid;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.filmDetails {
+  height: 80%;
+  position: fixed;
+  background-color: wheat;
+  z-index: 1;
+  bottom: 25px;
+}

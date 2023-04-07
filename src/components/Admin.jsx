@@ -1,0 +1,59 @@
+import React from "react";
+
+const Admin = () => {
+  const [searchInput, setSearchInput] = useState({});
+  const [apiData, setApiData] = useState([]);
+  const dispatch = useDispatch();
+
+  const onInput = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    callAPI();
+  };
+
+  const callAPI = async () => {
+    const encodedSearchInput = encodeURI(searchInput);
+
+    const apiKey = "";
+
+    const results = await axios.get(
+      `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${encodedSearchInput}&page=1&include_adult=false`
+    );
+
+    setApiData(results.data.results);
+    console.log(results.data.results);
+  };
+
+  return (
+    <>
+      <div className="container">
+        <form onInput={onInput} onSubmit={onSubmit}>
+          <input
+            type="text"
+            name="searchBar"
+            id="searchBar"
+            placeholder="Search..."
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      {apiData.map((item) => (
+        <>
+          <p key={item.id}>{item.title}</p>
+          <button
+            onClick={() => {
+              dispatch(addFilm(item));
+            }}
+          >
+            Add
+          </button>
+        </>
+      ))}
+    </>
+  );
+};
+
+export default Admin;
