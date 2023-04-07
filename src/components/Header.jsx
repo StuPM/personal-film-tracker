@@ -10,7 +10,7 @@ const Header = () => {
       <nav>
         <button>About</button>
         <SearchBar />
-        <img className="userIcon" src={userSVG} alt="" />
+        <button>Stats</button>
       </nav>
     </header>
   );
