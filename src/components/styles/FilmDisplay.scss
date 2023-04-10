@@ -21,4 +21,19 @@
   background-color: wheat;
   z-index: 1;
   bottom: 25px;
+
+  .title {
+    font-weight: bold;
+  }
+
+  .closeFilmDetails {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .reviewContainer {
+    border: 1px solid black;
+    margin: 5px;
+  }
 }

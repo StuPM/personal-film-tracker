@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { addFilm } from "../features/tracker/trackerSlice";
+import { Link } from "react-router-dom";
 
 const Admin = () => {
   const [searchInput, setSearchInput] = useState({});
@@ -33,6 +34,7 @@ const Admin = () => {
   return (
     <>
       <div className="container">
+        <Link to="/">Home</Link>
         <form onInput={onInput} onSubmit={onSubmit}>
           <input
             type="text"
@@ -44,8 +46,9 @@ const Admin = () => {
         </form>
       </div>
       {apiData.map((item) => (
-        <>
-          <p key={item.id}>{item.title}</p>
+        <React.Fragment key={item.id}>
+          <p>{item.title}</p>
+          <p>{item.id}</p>
           <button
             onClick={() => {
               dispatch(addFilm(item));
@@ -53,7 +56,7 @@ const Admin = () => {
           >
             Add
           </button>
-        </>
+        </React.Fragment>
       ))}
     </>
   );

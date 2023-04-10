@@ -1,7 +1,7 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import "./styles/Header.scss";
-import userSVG from "../assets/user-square-svgrepo-com.svg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -11,6 +11,7 @@ const Header = () => {
         <button>About</button>
         <SearchBar />
         <button>Stats</button>
+        <Link to="/admin">Admin</Link>
       </nav>
     </header>
   );
