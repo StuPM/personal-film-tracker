@@ -2,19 +2,25 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import FilmDetails from "./FilmDetails";
 import {
+  addClickedFilmId,
+  selectClickedFilmId,
   selectToggleClickedFilm,
-  toggleClickedFilm,
+  toggleFilmTileClicked,
 } from "../../features/tracker/trackerSlice";
 
 const FilmTile = ({ film }) => {
-  const displayFilmDetails = useSelector(selectToggleClickedFilm);
+  //Can I remove this and just check if the clickedFilmId is the film ID?
+  //Set back to null or 0 when the x of filmDetail is clicked
+  const toggleFilmDetails = useSelector(selectToggleClickedFilm);
+  const clickedFilmId = useSelector(selectClickedFilmId);
   const dispatch = useDispatch();
 
   //Cover usecase where there is no poster.
   const poster = "https://image.tmdb.org/t/p/w342" + film.poster_path;
 
   const onClick = () => {
-    dispatch(toggleClickedFilm());
+    dispatch(toggleFilmTileClicked());
+    dispatch(addClickedFilmId(film.id));
     console.log(film.id);
   };
 
@@ -24,7 +30,9 @@ const FilmTile = ({ film }) => {
         <div>{film.title}</div>
         <img src={poster} alt="" />
       </div>
-      {displayFilmDetails && <FilmDetails film={film} />}
+      {toggleFilmDetails && clickedFilmId === film.id && (
+        <FilmDetails film={film} />
+      )}
     </React.Fragment>
   );
 };

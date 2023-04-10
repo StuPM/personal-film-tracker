@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   searchTerm: "",
-  clickedFilm: "",
-  toggleClickedFilm: false,
+  clickedFilmId: null,
+  toggleFilmTileClicked: false,
   filmStore: [
     {
       adult: false,
@@ -357,23 +357,27 @@ export const trackerSlice = createSlice({
     addSearchTerm: (state, action) => {
       state.searchTerm = action.payload;
     },
-    addClickedFilm: (state, action) => {
-      state.clickedFilm = action.payload;
+    addClickedFilmId: (state, action) => {
+      state.clickedFilmId = action.payload;
     },
-    toggleClickedFilm: (state, action) => {
-      state.toggleClickedFilm = !state.toggleClickedFilm;
+    toggleFilmTileClicked: (state, action) => {
+      state.toggleFilmTileClicked = !state.toggleFilmTileClicked;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addFilm, addSearchTerm, addClickedFilm, toggleClickedFilm } =
-  trackerSlice.actions;
+export const {
+  addFilm,
+  addSearchTerm,
+  addClickedFilmId,
+  toggleFilmTileClicked,
+} = trackerSlice.actions;
 
 export const selectFilmStore = (state) => state.tracker.filmStore;
 export const selectSearchTerm = (state) => state.tracker.searchTerm;
-export const selectClickedFilm = (state) => state.tracker.clickedFilm;
+export const selectClickedFilmId = (state) => state.tracker.clickedFilmId;
 export const selectToggleClickedFilm = (state) =>
-  state.tracker.toggleClickedFilm;
+  state.tracker.toggleFilmTileClicked;
 
 export default trackerSlice.reducer;

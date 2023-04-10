@@ -23,7 +23,6 @@ const SearchBar = () => {
             id="searchBar"
             placeholder="Search..."
           />
-          <button type="submit">Submit</button>
         </form>
       </div>
     </>
