@@ -18,17 +18,21 @@ const FilmDisplay = () => {
     );
   }, [filmStore, searchTerm]);
 
-  return (
-    <>
-      <div className="filmContainer">
-        {filteredFilms.map((item) => (
-          <React.Fragment key={item.id}>
-            <FilmTile film={item} />
-          </React.Fragment>
-        ))}
-      </div>
-    </>
-  );
+  if (filteredFilms.length > 0) {
+    return (
+      <>
+        <div className="filmContainer">
+          {filteredFilms.map((item) => (
+            <React.Fragment key={item.id}>
+              <FilmTile film={item} />
+            </React.Fragment>
+          ))}
+        </div>
+      </>
+    );
+  } else {
+    return <p>No films match your search term.</p>;
+  }
 };
 
 export default FilmDisplay;

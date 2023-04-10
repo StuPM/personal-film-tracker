@@ -4,6 +4,11 @@
 
 - Styles for 400px wide.
 
+# Bugs
+
+- Why doesn't a film add
+- Capture films with no posters
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

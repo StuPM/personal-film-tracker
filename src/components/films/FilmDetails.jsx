@@ -11,12 +11,12 @@ const FilmDetails = ({ film }) => {
 
   return (
     <div className="filmDetails">
-      <div>ID: {film.id}</div>
-      <div>{film.title}</div>
+      <div className="title">{film.title}</div>
       <div>Release: {film.release_date}</div>
       <div>Overview: {film.overview}</div>
       <div className="reviewContainer">
-        <div>Reviews</div>
+        Viewing history:
+        {/* <div>Viewing history:</div> */}
         <div className="individualReview">
           <div>Review 1...</div>
           <div>Rating 1...</div>
@@ -24,7 +24,7 @@ const FilmDetails = ({ film }) => {
         </div>
       </div>
       <button className="closeFilmDetails" onClick={onClick}>
-        Close
+        X
       </button>
     </div>
   );

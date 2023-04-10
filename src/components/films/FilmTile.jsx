@@ -15,16 +15,17 @@ const FilmTile = ({ film }) => {
 
   const onClick = () => {
     dispatch(toggleClickedFilm());
+    console.log(film.id);
   };
 
   return (
-    <>
-      <div key={film.id} className="filmTile" onClick={onClick}>
+    <React.Fragment key={film.id}>
+      <div className="filmTile" onClick={onClick}>
         <div>{film.title}</div>
         <img src={poster} alt="" />
       </div>
       {displayFilmDetails && <FilmDetails film={film} />}
-    </>
+    </React.Fragment>
   );
 };
 
