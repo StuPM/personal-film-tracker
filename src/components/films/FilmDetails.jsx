@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleFilmTileClicked } from "../../features/tracker/trackerSlice";
+import { addClickedFilmId } from "../../features/tracker/trackerSlice";
 
 const FilmDetails = ({ film }) => {
   const dispatch = useDispatch();
 
   const onClick = () => {
-    dispatch(toggleFilmTileClicked());
+    dispatch(addClickedFilmId(null));
   };
 
   return (

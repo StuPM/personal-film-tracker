@@ -45,19 +45,25 @@ const Admin = () => {
           <button type="submit">Submit</button>
         </form>
       </div>
-      {apiData.map((item) => (
-        <React.Fragment key={item.id}>
-          <p>{item.title}</p>
-          <p>{item.id}</p>
-          <button
-            onClick={() => {
-              dispatch(addFilm(item));
-            }}
-          >
-            Add
-          </button>
-        </React.Fragment>
-      ))}
+      <div className="filmContainer">
+        {apiData.map((item) => (
+          <React.Fragment key={item.id}>
+            <div className="filmTile">
+              <img
+                src={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
+                alt=""
+              />
+              <button
+                onClick={() => {
+                  dispatch(addFilm(item));
+                }}
+              >
+                Add
+              </button>
+            </div>
+          </React.Fragment>
+        ))}
+      </div>
     </>
   );
 };

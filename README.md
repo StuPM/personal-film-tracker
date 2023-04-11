@@ -1,5 +1,7 @@
 # Spec
 
+https://www.markdownguide.org/cheat-sheet/
+
 # Notes
 
 - Styles for 400px wide.
