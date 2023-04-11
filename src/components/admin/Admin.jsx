@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-import { addFilm } from "../features/tracker/trackerSlice";
+import { addFilm } from "../../features/tracker/trackerSlice";
 import { Link } from "react-router-dom";
 
 const Admin = () => {
