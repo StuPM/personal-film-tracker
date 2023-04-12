@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   searchTerm: "",
   clickedFilmId: null,
+  apiCallResults: null,
   filmStore: [
     {
       adult: false,
@@ -359,15 +360,19 @@ export const trackerSlice = createSlice({
     addClickedFilmId: (state, action) => {
       state.clickedFilmId = action.payload;
     },
+    addApiCallResults: (state, action) => {
+      state.apiCallResults = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addFilm, addSearchTerm, addClickedFilmId } =
+export const { addFilm, addSearchTerm, addClickedFilmId, addApiCallResults } =
   trackerSlice.actions;
 
 export const selectFilmStore = (state) => state.tracker.filmStore;
 export const selectSearchTerm = (state) => state.tracker.searchTerm;
 export const selectClickedFilmId = (state) => state.tracker.clickedFilmId;
+export const selectApiCallResults = (state) => state.tracker.apiCallResults;
 
 export default trackerSlice.reducer;
