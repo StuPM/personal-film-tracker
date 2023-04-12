@@ -5,7 +5,7 @@ import { addClickedFilmId } from "../../features/tracker/trackerSlice";
 const FilmDetails = ({ film }) => {
   const dispatch = useDispatch();
 
-  const onClick = () => {
+  const onClickClose = () => {
     dispatch(addClickedFilmId(null));
   };
 
@@ -23,7 +23,7 @@ const FilmDetails = ({ film }) => {
           <div>Watched 22nd Feb 2023, at Home/Cinema</div>
         </div>
       </div>
-      <button className="closeFilmDetails" onClick={onClick}>
+      <button className="closeFilmDetails" onClick={onClickClose}>
         X
       </button>
     </div>

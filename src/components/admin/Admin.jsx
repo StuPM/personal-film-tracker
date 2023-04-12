@@ -14,8 +14,8 @@ const Admin = () => {
   const dispatch = useDispatch();
 
   const onClick = (film) => {
+    console.log("I clicked on a film.");
     dispatch(addClickedFilmId(film.id));
-    console.log(film.id);
   };
 
   return (
@@ -23,20 +23,20 @@ const Admin = () => {
       <AdminHeader />
       <div className="filmContainer">
         {apiCallResults &&
-          apiCallResults.map((item) => (
-            <React.Fragment key={item.id}>
+          apiCallResults.map((film) => (
+            <React.Fragment key={film.id}>
               <div
                 className="filmTile"
                 onClick={() => {
-                  onClick(item);
+                  onClick(film);
                 }}
               >
                 <img
-                  src={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w342${film.poster_path}`}
                   alt=""
                 />
-                {clickedFilmId === item.id && <AdminFilmDetails film={item} />}
               </div>
+              {clickedFilmId === film.id && <AdminFilmDetails film={film} />}
             </React.Fragment>
           ))}
       </div>
