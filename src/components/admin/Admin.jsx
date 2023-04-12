@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { addFilm } from "../../features/tracker/trackerSlice";
+import {
+  addFilm,
+  addClickedFilmId,
+  selectClickedFilmId,
+} from "../../features/tracker/trackerSlice";
 import { Link } from "react-router-dom";
+import AdminFilmDetails from "./AdminFilmDetails";
 
 const Admin = () => {
   const [searchInput, setSearchInput] = useState({});
   const [apiData, setApiData] = useState([]);
+  const clickedFilmId = useSelector(selectClickedFilmId);
+
   const dispatch = useDispatch();
 
   const onInput = (e) => {
@@ -31,6 +38,11 @@ const Admin = () => {
     console.log(results.data.results);
   };
 
+  const onClick = (film) => {
+    dispatch(addClickedFilmId(film.id));
+    console.log(film.id);
+  };
+
   return (
     <>
       <div className="container">
@@ -48,18 +60,17 @@ const Admin = () => {
       <div className="filmContainer">
         {apiData.map((item) => (
           <React.Fragment key={item.id}>
-            <div className="filmTile">
+            <div
+              className="filmTile"
+              onClick={() => {
+                onClick(item);
+              }}
+            >
               <img
                 src={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
                 alt=""
               />
-              <button
-                onClick={() => {
-                  dispatch(addFilm(item));
-                }}
-              >
-                Add
-              </button>
+              {clickedFilmId === item.id && <AdminFilmDetails film={item} />}
             </div>
           </React.Fragment>
         ))}

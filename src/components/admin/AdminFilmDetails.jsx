@@ -1,6 +1,6 @@
 import React from "react";
 const AdminFilmDetails = () => {
-  return <></>;
+  return <>test</>;
 };
 
 export default AdminFilmDetails;
