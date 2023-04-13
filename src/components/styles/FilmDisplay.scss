@@ -17,10 +17,12 @@
 
 .filmDetails {
   height: 80%;
+  width: 100%;
   position: fixed;
   background-color: wheat;
   z-index: 1;
   bottom: 25px;
+  left: 0;
 
   .title {
     font-weight: bold;
