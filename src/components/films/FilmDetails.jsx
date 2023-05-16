@@ -1,28 +1,31 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addClickedFilmId } from "../../features/tracker/trackerSlice";
+import { selectRatingReviewStore } from "../../features/tracker/trackerSlice";
+import { useEffect } from "react";
+import FilmReview from "./FilmReview";
 
 const FilmDetails = ({ film }) => {
   const dispatch = useDispatch();
+  const ratingReviewStore = useSelector(selectRatingReviewStore);
 
   const onClickClose = () => {
     dispatch(addClickedFilmId(null));
   };
+
+  const filterReviews = ratingReviewStore.filter((num) => num.id === film.id);
+  console.log(filterReviews);
 
   return (
     <div className="filmDetails">
       <div className="title">{film.title}</div>
       <div>Release: {film.release_date}</div>
       <div>Overview: {film.overview}</div>
-      <div className="reviewContainer">
-        Viewing history:
-        {/* <div>Viewing history:</div> */}
-        <div className="individualReview">
-          <div>Review 1...</div>
-          <div>Rating 1...</div>
-          <div>Watched 22nd Feb 2023, at Home/Cinema</div>
+      {filterReviews.map((review) => (
+        <div className="reviewContainer">
+          <FilmReview review={review} key={review.id + review.viewingDate} />
         </div>
-      </div>
+      ))}
       <button className="closeFilmDetails" onClick={onClickClose}>
         X
       </button>

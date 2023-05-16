@@ -345,6 +345,22 @@ const initialState = {
       vote_count: 8,
     },
   ],
+  ratingReviewStore: [
+    {
+      id: 603,
+      viewingDate: "2023-05-16",
+      location: 1, //1 cinema, 0 home
+      review: "This film was top.",
+      rating: 10,
+    },
+    {
+      id: 603,
+      viewingDate: "2023-04-16",
+      location: 1, //1 cinema, 0 home
+      review: "This film was top banna.",
+      rating: 4,
+    },
+  ],
 };
 
 export const trackerSlice = createSlice({
@@ -374,5 +390,7 @@ export const selectFilmStore = (state) => state.tracker.filmStore;
 export const selectSearchTerm = (state) => state.tracker.searchTerm;
 export const selectClickedFilmId = (state) => state.tracker.clickedFilmId;
 export const selectApiCallResults = (state) => state.tracker.apiCallResults;
+export const selectRatingReviewStore = (state) =>
+  state.tracker.ratingReviewStore;
 
 export default trackerSlice.reducer;
