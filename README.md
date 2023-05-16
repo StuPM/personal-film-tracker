@@ -1,24 +1,32 @@
-https://www.markdownguide.org/cheat-sheet/
+# SPM Personal Film Tracker
 
-# Spec
+View and interactive list of all the films that I have watched recently. With reviews and ratings provided by myself and film details provided by [TheMovieDB](https://www.themoviedb.org/) API.
 
-## Home
+## Live link
 
-- Display at list of films watched
-- Click on film to view further details
-- Group films by year / month
-- Scroll and display further details
+[Personal Film Tracker TBC](https://simpsons-quotes-spm.netlify.app).
 
-## About
+## Features TBC
 
-## Stats
+When the webpage loads, a number of film posters will appear. This is a list of films that I have watched, appearing in chronological order.
 
--
+By clicking on a film poster you can view:
 
-# Notes
+- Details about the film, such as release date and synopsis of the film.
+- Where appropriate, a review, rating and viewing history will appear.
 
-- Styles for 400px wide.
+## Technology Stack
 
-# Bugs
+- React
+  - Built using functional components.
+- Redux
+  - Storing data in the local state.
+- API
+  - Pulling film details from the TheMovieDB API by using AXIOS.
+- Databases
+  - TBC
+- HTML5, CSS3 and JavaScript.
 
-- Capture films with no posters
+## Author
+
+Built and created by me, Stuart Paul McGee.
