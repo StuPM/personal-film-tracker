@@ -14,7 +14,6 @@ const Admin = () => {
   const dispatch = useDispatch();
 
   const onClick = (film) => {
-    console.log("I clicked on a film.");
     dispatch(addClickedFilmId(film.id));
   };
 
