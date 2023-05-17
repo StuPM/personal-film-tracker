@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addClickedFilmId } from "../../features/tracker/trackerSlice";
 import { selectRatingReviewStore } from "../../features/tracker/trackerSlice";
-import { useEffect } from "react";
 import FilmReview from "./FilmReview";
 
 const FilmDetails = ({ film }) => {
