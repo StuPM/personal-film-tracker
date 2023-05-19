@@ -15,7 +15,6 @@ const FilmTile = ({ film }) => {
 
   const onClick = () => {
     dispatch(addClickedFilmId(film.id));
-    console.log(film.id);
   };
 
   return (
