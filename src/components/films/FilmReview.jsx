@@ -1,10 +1,9 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import api from "../../api";
-import { useState } from "react";
 
 const FilmReview = ({ id }) => {
-  const [reviews, setReviews] = useState();
+  const [reviews, setReviews] = useState(false);
 
   useEffect(() => {
     async function getReviews() {
@@ -17,12 +16,20 @@ const FilmReview = ({ id }) => {
 
   return (
     <div className="individualReview">
-      <p>testing</p>
-      {/* <p>{review.id}</p>
-      <p>{review.rating}</p>
-      <p>When: {review.viewingDate}</p>
-      <p>Where : {review.location === 1 ? "Cinema" : "Home"}</p>
-      <p>{review.review}</p> */}
+      {reviews &&
+        reviews.map((item) => (
+          <React.Fragment key={item.id + item.viewingDate}>
+            <div className="viewingDate">{item.viewingDate}</div>
+            <div className="location">{item.location ? "Cinema" : "Home"}</div>
+            <div className="rating">{item.rating}</div>
+            <div className="review">{item.review}</div>
+          </React.Fragment>
+        ))}
+      {reviews.length === 0 && (
+        <>
+          <p>No reviews to display!</p>
+        </>
+      )}
     </div>
   );
 };

@@ -12,6 +12,12 @@ async function api(type, payload) {
       });
       return data;
     }
+    case "GETFILMSALL": {
+      const { data } = await axios.get(`http://127.0.0.1:8888/getFilms`, {
+        params,
+      });
+      return data;
+    }
     default: {
       break;
     }
