@@ -3,17 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { addClickedFilmId } from "../../features/tracker/trackerSlice";
 import { selectRatingReviewStore } from "../../features/tracker/trackerSlice";
 import FilmReview from "./FilmReview";
+import api from "../../api";
 
 const FilmDetails = ({ film }) => {
   const dispatch = useDispatch();
   const ratingReviewStore = useSelector(selectRatingReviewStore);
 
-  const onClickClose = () => {
+  const onClickClose = async () => {
+    const result = await api("GETREVIEWSBYID", { id: film.id });
+    console.log(result);
     dispatch(addClickedFilmId(null));
   };
 
   const filterReviews = ratingReviewStore.filter((num) => num.id === film.id);
-  console.log(filterReviews);
 
   return (
     <div className="filmDetails">
