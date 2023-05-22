@@ -10,7 +10,7 @@ const FilmTile = ({ film }) => {
   const clickedFilmId = useSelector(selectClickedFilmId);
   const dispatch = useDispatch();
 
-  //Cover usecase where there is no poster.
+  //TODO Cover usecase where there is no poster.
   const poster = "https://image.tmdb.org/t/p/w342" + film.poster_path;
 
   const onClick = () => {
