@@ -54,11 +54,12 @@ const AddReview = ({ id }) => {
         onReset={onResetReview}
         onSubmit={onSubmitReview}
       >
-        <label htmlFor="dateWatched">Date watched</label>
-        <input type="date" name="dateWatched" id="dateWatched" />
+        <div className="watchedContainer">
+          <label htmlFor="dateWatched">Date watched</label>
+          <input type="date" name="dateWatched" id="dateWatched" />
+        </div>
 
-        <p>Location</p>
-        <div>
+        <div className="locationContainer">
           HOME
           <label htmlFor="location" className="switch">
             <input type="checkbox" id="location" />
@@ -67,36 +68,39 @@ const AddReview = ({ id }) => {
           CINEMA
         </div>
 
-        <p>Rating out of ten</p>
-
-        <div className="starContainer">
-          <input type="radio" name="rating" id="rating-10" />
-          <label htmlFor="rating-10"></label>
-          <input type="radio" name="rating" id="rating-9" />
-          <label htmlFor="rating-9"></label>
-          <input type="radio" name="rating" id="rating-8" />
-          <label htmlFor="rating-8"></label>
-          <input type="radio" name="rating" id="rating-7" />
-          <label htmlFor="rating-7"></label>
-          <input type="radio" name="rating" id="rating-6" />
-          <label htmlFor="rating-6"></label>
-          <input type="radio" name="rating" id="rating-5" />
-          <label htmlFor="rating-5"></label>
-          <input type="radio" name="rating" id="rating-4" />
-          <label htmlFor="rating-4"></label>
-          <input type="radio" name="rating" id="rating-3" />
-          <label htmlFor="rating-3"></label>
-          <input type="radio" name="rating" id="rating-2" />
-          <label htmlFor="rating-2"></label>
-          <input type="radio" name="rating" id="rating-1" />
-          <label htmlFor="rating-1"></label>
+        <div className="ratingContainer">
+          Rating
+          <div className="starContainer">
+            <input type="radio" name="rating" id="rating-10" />
+            <label htmlFor="rating-10"></label>
+            <input type="radio" name="rating" id="rating-9" />
+            <label htmlFor="rating-9"></label>
+            <input type="radio" name="rating" id="rating-8" />
+            <label htmlFor="rating-8"></label>
+            <input type="radio" name="rating" id="rating-7" />
+            <label htmlFor="rating-7"></label>
+            <input type="radio" name="rating" id="rating-6" />
+            <label htmlFor="rating-6"></label>
+            <input type="radio" name="rating" id="rating-5" />
+            <label htmlFor="rating-5"></label>
+            <input type="radio" name="rating" id="rating-4" />
+            <label htmlFor="rating-4"></label>
+            <input type="radio" name="rating" id="rating-3" />
+            <label htmlFor="rating-3"></label>
+            <input type="radio" name="rating" id="rating-2" />
+            <label htmlFor="rating-2"></label>
+            <input type="radio" name="rating" id="rating-1" />
+            <label htmlFor="rating-1"></label>
+          </div>
         </div>
 
         <label htmlFor="review">Review</label>
         <textarea name="review" id="review" cols="30" rows="10"></textarea>
 
-        <button type="reset">Reset</button>
-        <button type="submit">Save</button>
+        <div className="buttonContainer">
+          <button type="reset">Reset</button>
+          <button type="submit">Save</button>
+        </div>
       </form>
     </>
   );
