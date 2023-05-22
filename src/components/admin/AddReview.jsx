@@ -49,7 +49,7 @@ const AddReview = ({ id }) => {
   return (
     <>
       <form
-        className="adminReview"
+        className="addReview"
         onInput={onInputReview}
         onReset={onResetReview}
         onSubmit={onSubmitReview}

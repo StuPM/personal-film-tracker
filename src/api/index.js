@@ -25,6 +25,13 @@ async function api(type, payload) {
       );
       return data;
     }
+    case "ADDFILM": {
+      const { data } = await axios.post(
+        `http://127.0.0.1:8888/addFilm`,
+        payload
+      );
+      return data;
+    }
     default: {
       break;
     }
