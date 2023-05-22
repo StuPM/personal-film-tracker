@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addClickedFilmId } from "../../features/tracker/trackerSlice";
+import AddReview from "./AddReview";
 
 const AdminFilmDetails = ({ film }) => {
   const dispatch = useDispatch();
@@ -14,21 +15,8 @@ const AdminFilmDetails = ({ film }) => {
         <div className="title">{film.title}</div>
         <div>Overview: {film.overview}</div>
         <p></p>
-        <form action="">
-          <label htmlFor="formDateWatched">Date watched</label>
-          <input type="date" name="filmDateWatched" id="filmDateWatched" />
-          <p>Location</p>
-          <p>Rating out of ten</p>
-          <label htmlFor="filmReview">Reivew</label>
-          <textarea
-            name="filmReview"
-            id="filmReview"
-            cols="30"
-            rows="10"
-          ></textarea>
-        </form>
-        <button type="reset">Reset</button>
-        <button type="submit">Save</button>
+
+        <AddReview id={film.id} />
         <button className="closeFilmDetails" onClick={onClickClose}>
           X
         </button>

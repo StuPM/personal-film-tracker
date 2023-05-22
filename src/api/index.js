@@ -1,6 +1,6 @@
 import axios from "axios";
-// TODO: Store URL somewhere more secure
-// TODO: Change the case to a type/enum
+// TODO Store URL somewhere more secure
+// TODO Change the case to a type/enum
 
 async function api(type, payload) {
   const params = new URLSearchParams(payload);
