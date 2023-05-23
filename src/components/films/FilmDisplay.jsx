@@ -23,11 +23,16 @@ const FilmDisplay = () => {
   return (
     <>
       <div className="filmContainer">
-        {filteredFilms.map((item) => (
-          <React.Fragment key={item._id}>
-            <FilmTile film={item} />
+        {filteredFilms.map((film) => (
+          <React.Fragment key={film._id}>
+            <FilmTile film={film} />
           </React.Fragment>
         ))}
+        {filteredFilms.length === 0 && (
+          <>
+            <p>No films to display!</p>
+          </>
+        )}
       </div>
     </>
   );

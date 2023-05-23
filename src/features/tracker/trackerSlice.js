@@ -34,6 +34,7 @@ export const trackerSlice = createSlice({
       state.searchTerm = action.payload;
     },
     addClickedFilmId: (state, action) => {
+      //Used in FileTile
       state.clickedFilmId = action.payload;
     },
     addApiCallResults: (state, action) => {

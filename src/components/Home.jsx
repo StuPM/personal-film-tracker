@@ -11,7 +11,6 @@ const Home = () => {
 
   const getDatabaseFilms = async () => {
     const result = await api("GETFILMSALL");
-    console.log(result);
     dispatch(setFilmStore(result));
   };
 
