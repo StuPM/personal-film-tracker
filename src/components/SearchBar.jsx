@@ -6,7 +6,7 @@ const SearchBar = () => {
   const dispatch = useDispatch();
 
   const onInput = (e) => {
-    dispatch(addSearchTerm(e.target.value));
+    dispatch(addSearchTerm(e.target.value.toLowerCase()));
   };
 
   const onSubmit = (e) => {

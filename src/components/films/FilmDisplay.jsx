@@ -14,25 +14,23 @@ const FilmDisplay = () => {
 
   useEffect(() => {
     setFilteredFilms(
-      filmStore.filter((filmStore) => filmStore.title.includes(searchTerm))
+      filmStore.filter((filmStore) =>
+        filmStore.title.toLowerCase().includes(searchTerm)
+      )
     );
   }, [filmStore, searchTerm]);
 
-  if (filteredFilms.length > 0) {
-    return (
-      <>
-        <div className="filmContainer">
-          {filteredFilms.map((item) => (
-            <React.Fragment key={item.id}>
-              <FilmTile film={item} />
-            </React.Fragment>
-          ))}
-        </div>
-      </>
-    );
-  } else {
-    return <p>No films match your search term.</p>;
-  }
+  return (
+    <>
+      <div className="filmContainer">
+        {filteredFilms.map((item) => (
+          <React.Fragment key={item._id}>
+            <FilmTile film={item} />
+          </React.Fragment>
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default FilmDisplay;
