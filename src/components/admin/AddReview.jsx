@@ -33,7 +33,7 @@ const AddReview = ({ id }) => {
     //TODO Validate data before submit
     e.preventDefault();
     if (
-      review.hasOwnProperty("dateWatched") &&
+      review.hasOwnProperty("dateReviewed") &&
       review.hasOwnProperty("location") &&
       review.hasOwnProperty("rating") &&
       review.hasOwnProperty("review") &&
@@ -55,8 +55,8 @@ const AddReview = ({ id }) => {
         onSubmit={onSubmitReview}
       >
         <div className="watchedContainer">
-          <label htmlFor="dateWatched">Date watched</label>
-          <input type="date" name="dateWatched" id="dateWatched" />
+          <label htmlFor="dateReviewed">Date reviewed:</label>
+          <input type="date" name="dateReviewed" id="dateReviewed" />
         </div>
 
         <div className="locationContainer">

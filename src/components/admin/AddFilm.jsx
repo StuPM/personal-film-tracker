@@ -4,8 +4,6 @@ import api from "../../api";
 const AddFilm = ({ film }) => {
   const [newFilm, setNewFilm] = useState({ ...film });
 
-  console.log(newFilm);
-
   const onInputFilm = (e) => {
     const newFilmData = { ...newFilm, [e.target.id]: e.target.value };
     setNewFilm(newFilmData);

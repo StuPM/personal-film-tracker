@@ -1,14 +1,13 @@
 .filmContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 99%;
-
   border: 1px black solid;
 
   .filmTile {
     width: 50%;
     position: relative;
-    // border: 1px black solid;
+    font-size: 0;
+
     img {
       width: 100%;
     }

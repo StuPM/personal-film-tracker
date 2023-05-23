@@ -18,7 +18,7 @@ const FilmReview = ({ id }) => {
       {reviews &&
         reviews.map((review) => (
           <React.Fragment key={review._id}>
-            <div className="viewingDate">{review.viewingDate}</div>
+            <div className="viewingDate">{review.dateReviewed}</div>
             <div className="location">
               {review.location ? "Cinema" : "Home"}
             </div>

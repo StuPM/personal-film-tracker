@@ -27,10 +27,11 @@ export const trackerSlice = createSlice({
   name: "tracker",
   initialState,
   reducers: {
-    addFilm: (state, action) => {
-      state.filmStore = [...state.filmStore, action.payload];
-    },
+    // addFilm: (state, action) => {
+    //   state.filmStore = [...state.filmStore, action.payload];
+    // },
     addSearchTerm: (state, action) => {
+      //Used in AdminHeader and SearchBar
       state.searchTerm = action.payload;
     },
     addClickedFilmId: (state, action) => {
@@ -38,6 +39,7 @@ export const trackerSlice = createSlice({
       state.clickedFilmId = action.payload;
     },
     addApiCallResults: (state, action) => {
+      //Used in AdminHeader
       state.apiCallResults = action.payload;
     },
     setFilmStore: (state, action) => {

@@ -1,5 +1,8 @@
 import axios from "axios";
 
+export const apiURL = `http://127.0.0.1:8888`;
+
+//TODO Move to api file
 export const callAPI = async (searchTerm) => {
   const encodedSearchInput = encodeURI(searchTerm);
 
@@ -8,4 +11,12 @@ export const callAPI = async (searchTerm) => {
   );
 
   return await results.data.results;
+};
+
+export const formatDate = (date) => {
+  return new Date(date).toLocaleDateString(`default`, {
+    year: `numeric`,
+    month: "long",
+    day: "numeric",
+  });
 };
