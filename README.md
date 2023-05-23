@@ -24,7 +24,7 @@ By clicking on a film poster you can view:
 - API
   - Pulling film details from the TheMovieDB API by using AXIOS.
 - Databases
-  - TBC
+  - Film database is initially connected to in the home component, this pulls in the films and stores in the redux state for local.
 - HTML5, CSS3 and JavaScript.
 
 ## Author
