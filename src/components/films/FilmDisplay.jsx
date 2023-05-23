@@ -6,6 +6,7 @@ import {
 } from "../../features/tracker/trackerSlice";
 import FilmTile from "./FilmTile";
 import "../styles/FilmDisplay.scss";
+import api from "../../api";
 
 const FilmDisplay = () => {
   const filmStore = useSelector(selectFilmStore);
@@ -17,6 +18,15 @@ const FilmDisplay = () => {
       filmStore.filter((filmStore) => filmStore.title.includes(searchTerm))
     );
   }, [filmStore, searchTerm]);
+
+  useEffect(() => {
+    async function getFilms() {
+      const result = await api("GETFILMSALL");
+      console.log(result);
+      setFilteredFilms(result);
+    }
+    getFilms();
+  }, []);
 
   if (filteredFilms.length > 0) {
     return (
