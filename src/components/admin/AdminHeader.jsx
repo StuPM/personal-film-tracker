@@ -1,22 +1,21 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar";
-import { callAPI } from "../../utils";
 import {
   addApiCallResults,
   addClickedFilmId,
   addSearchTerm,
   selectSearchTerm,
 } from "../../features/tracker/trackerSlice";
+import api from "../../api";
 
 const AdminHeader = () => {
   const dispatch = useDispatch();
   const searchTerm = useSelector(selectSearchTerm);
 
   const onClickSearchAPI = async () => {
-    const result = await callAPI(searchTerm);
+    const result = await api("CALLTMDBAPI", searchTerm);
     dispatch(addApiCallResults(result));
   };
 
