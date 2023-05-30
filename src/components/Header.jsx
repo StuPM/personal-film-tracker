@@ -11,8 +11,7 @@ const Header = () => {
       <header className="container">
         <h1>SPM - Film Tracker</h1>
         <nav>
-          {/* <button>About</button> */}
-          <About />
+          <Link to="/about">About</Link>
           <button>Stats</button>
           <SearchBar />
           <Link to="/admin">Admin</Link>
