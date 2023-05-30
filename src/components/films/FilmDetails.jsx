@@ -13,13 +13,15 @@ const FilmDetails = ({ film }) => {
 
   return (
     <div className="filmDetails">
-      <div className="title">{film.title}</div>
-      <div>Released: {formatDate(film.release_date)}</div>
-      <div>Overview: {film.overview}</div>
-      <FilmReview id={film.id} />
-      <button className="closeFilmDetails" onClick={onClickClose}>
-        X
-      </button>
+      <div className="container">
+        <h2 className="title">{film.title}</h2>
+        <div>Released: {formatDate(film.release_date)}</div>
+        <div>Overview: {film.overview}</div>
+        <FilmReview id={film.id} />
+        <button className="closeFilmDetails" onClick={onClickClose}>
+          X
+        </button>
+      </div>
     </div>
   );
 };

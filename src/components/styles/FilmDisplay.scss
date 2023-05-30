@@ -15,26 +15,36 @@
 }
 
 .filmDetails {
-  height: 80%;
-  width: 100%;
   position: fixed;
-  background-color: wheat;
+  height: 80%;
+  width: 80%;
+
+  margin: auto;
+  top: 10%;
+  left: 10%;
+
+  background-color: #a2aab3;
   z-index: 1;
-  bottom: 25px;
-  left: 0;
 
-  .title {
-    font-weight: bold;
-  }
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  border-radius: 5px;
 
-  .closeFilmDetails {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
+  .container {
+    flex-direction: column;
+    padding: 1rem;
 
-  .reviewContainer {
-    border: 1px solid black;
-    margin: 5px;
+    h2 {
+    }
+
+    .closeFilmDetails {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .reviewContainer {
+      border: 1px solid black;
+      margin: 5px;
+    }
   }
 }
