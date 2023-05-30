@@ -7,12 +7,12 @@ import "react-slide-out/lib/index.css";
 const Header = () => {
   return (
     <>
-      <header>
-        <h1>Stuart M Film Tracker</h1>
+      <header className="container">
+        <h1>SPM - Film Tracker</h1>
         <nav>
           <button>About</button>
-          <SearchBar />
           <button>Stats</button>
+          <SearchBar />
           <Link to="/admin">Admin</Link>
         </nav>
       </header>
