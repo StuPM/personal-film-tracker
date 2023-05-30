@@ -1,8 +1,8 @@
 # SPM Personal Film Tracker
 
-View and interactive list of all the films that I have watched recently. With reviews and ratings provided by myself and film details provided by [TheMovieDB](https://www.themoviedb.org/) API.
+View an interactive list of all the films that I have watched recently. With reviews and ratings provided by myself and film details provided by [TheMovieDB](https://www.themoviedb.org/) API.
 
-## Live link
+## Live link TBC
 
 [Personal Film Tracker TBC](https://simpsons-quotes-spm.netlify.app).
 
