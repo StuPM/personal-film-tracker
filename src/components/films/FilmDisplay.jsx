@@ -6,6 +6,7 @@ import {
 } from "../../features/tracker/trackerSlice";
 import FilmTile from "./FilmTile";
 import "../styles/FilmDisplay.scss";
+import Timeline from "./Timeline";
 
 const FilmDisplay = () => {
   const filmStore = useSelector(selectFilmStore);
@@ -21,7 +22,7 @@ const FilmDisplay = () => {
   }, [filmStore, searchTerm]);
 
   return (
-    <>
+    <main>
       <div className="filmContainer">
         {filteredFilms.map((film) => (
           <React.Fragment key={film._id}>
@@ -34,7 +35,8 @@ const FilmDisplay = () => {
           </>
         )}
       </div>
-    </>
+      {/* <Timeline /> */}
+    </main>
   );
 };
 
