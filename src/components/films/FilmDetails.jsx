@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addClickedFilmId } from "../../features/tracker/trackerSlice";
 import FilmReview from "./FilmReview";
 import { formatDate } from "../../utils";
+import api from "../../api";
+import axios from "axios";
+import { useState } from "react";
 
 const FilmDetails = ({ film }) => {
+  const [filmCount, setFilmCount] = useState(0);
+
   const dispatch = useDispatch();
 
   const onClickClose = async () => {
@@ -12,8 +17,8 @@ const FilmDetails = ({ film }) => {
   };
 
   const createRating = (rating) => {
+    //TODO Can I make this into a component instead?
     let elements = [];
-    console.log(rating);
 
     for (let index = 10; index > 0; index--) {
       if (index === rating) {
@@ -41,6 +46,15 @@ const FilmDetails = ({ film }) => {
     return elements;
   };
 
+  //TODO move to other function
+  useEffect(() => {
+    async function getFilmCount() {
+      const result = await api("COUNTFILMSBYID", { id: film.id });
+      setFilmCount(result);
+    }
+    getFilmCount();
+  }, []);
+
   return (
     <div className="filmDetails">
       <div className="container">
@@ -49,10 +63,6 @@ const FilmDetails = ({ film }) => {
         <div>Overview: {film.overview}</div>
         <FilmReview id={film.id} />
         <div className="starContainer">{createRating(film.rating)}</div>
-        {/* <div className="starContainer">
-          <input type="radio" name="rating" id="rating-6" checked disabled />
-          <label htmlFor="rating"></label>
-        </div> */}
         <button className="closeFilmDetails" onClick={onClickClose}>
           X
         </button>

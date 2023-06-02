@@ -6,6 +6,7 @@ async function api(type, payload) {
   switch (type) {
     case "GETREVIEWSBYID": {
       const params = new URLSearchParams(payload);
+      console.log(payload);
       const { data } = await axios.get(`${apiURL}/getReviews`, {
         params,
       });
@@ -24,6 +25,12 @@ async function api(type, payload) {
     }
     case "ADDFILM": {
       const { data } = await axios.post(`${apiURL}/addFilm`, payload);
+      return data;
+    }
+    case "COUNTFILMSBYID": {
+      const params = new URLSearchParams(payload);
+      console.log(payload);
+      const { data } = await axios.get(`${apiURL}/countFilmsByID`, { params });
       return data;
     }
     case "CALLTMDBAPI": {
