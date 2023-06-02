@@ -11,6 +11,36 @@ const FilmDetails = ({ film }) => {
     dispatch(addClickedFilmId(null));
   };
 
+  const createRating = (rating) => {
+    let elements = [];
+    console.log(rating);
+
+    for (let index = 10; index > 0; index--) {
+      if (index === rating) {
+        elements.push(
+          <React.Fragment key={index}>
+            <input
+              type="radio"
+              name="rating"
+              id={`rating-${index}`}
+              disabled
+              checked
+            />
+            <label htmlFor={`rating-${index}`}></label>
+          </React.Fragment>
+        );
+      } else {
+        elements.push(
+          <React.Fragment key={index}>
+            <input type="radio" name="rating" id={`rating-${index}`} disabled />
+            <label htmlFor={`rating-${index}`}></label>
+          </React.Fragment>
+        );
+      }
+    }
+    return elements;
+  };
+
   return (
     <div className="filmDetails">
       <div className="container">
@@ -18,6 +48,11 @@ const FilmDetails = ({ film }) => {
         <div>Released: {formatDate(film.release_date)}</div>
         <div>Overview: {film.overview}</div>
         <FilmReview id={film.id} />
+        <div className="starContainer">{createRating(film.rating)}</div>
+        {/* <div className="starContainer">
+          <input type="radio" name="rating" id="rating-6" checked disabled />
+          <label htmlFor="rating"></label>
+        </div> */}
         <button className="closeFilmDetails" onClick={onClickClose}>
           X
         </button>
