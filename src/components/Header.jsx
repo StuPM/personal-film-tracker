@@ -5,20 +5,22 @@ import { Link } from "react-router-dom";
 import "react-slide-out/lib/index.css";
 import About from "./About";
 import logo from "../assets/SPM.png";
+import { useState } from "react";
 
 const Header = () => {
+  const [burger, setBurger] = useState(false);
+
+  const burgerClick = () => {
+    setBurger(!burger);
+  };
+
   return (
     <>
-      {/* <header className="container">
-        <h1>SPM - Film Tracker</h1>
-        <nav>
-          <Link to="/about">About</Link>
-          <button>Stats</button>
-          <SearchBar />
-          <Link to="/admin">Admin</Link>
-        </nav>
-      </header> */}
-      <nav className="navbar" role="navigation" aria-label="main navigation">
+      <nav
+        className="navbar has-shadow"
+        role="navigation"
+        aria-label="main navigation"
+      >
         <div className="navbar-brand">
           <a className="navbar-item" href="https://bulma.io">
             <img
@@ -30,10 +32,11 @@ const Header = () => {
 
           <a
             role="button"
-            className="navbar-burger"
+            className={burger ? "navbar-burger is-active" : "navbar-burger"}
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarBasicExample"
+            onClick={burgerClick}
           >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -41,7 +44,10 @@ const Header = () => {
           </a>
         </div>
 
-        <div id="navbarBasicExample" className="navbar-menu">
+        <div
+          id="navbarBasicExample"
+          className={burger ? "navbar-menu is-active" : "navbar-menu"}
+        >
           <div className="navbar-start">
             <Link className="navbar-item" to="/">
               Home
