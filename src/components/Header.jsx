@@ -15,9 +15,9 @@ const Header = () => {
   };
 
   return (
-    <>
+    <header>
       <nav
-        className="navbar has-shadow"
+        className="navbar has-shadow "
         role="navigation"
         aria-label="main navigation"
       >
@@ -35,7 +35,7 @@ const Header = () => {
             className={burger ? "navbar-burger is-active" : "navbar-burger"}
             aria-label="menu"
             aria-expanded="false"
-            data-target="navbarBasicExample"
+            data-target="filmNavBar"
             onClick={burgerClick}
           >
             <span aria-hidden="true"></span>
@@ -45,7 +45,7 @@ const Header = () => {
         </div>
 
         <div
-          id="navbarBasicExample"
+          id="filmNavBar"
           className={burger ? "navbar-menu is-active" : "navbar-menu"}
         >
           <div className="navbar-start">
@@ -69,7 +69,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-    </>
+    </header>
   );
 };
 

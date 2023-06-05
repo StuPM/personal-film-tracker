@@ -1,36 +1,39 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import api from "../../api";
+import { formatDate } from "../../utils";
 
 const FilmReview = ({ id }) => {
   const [reviews, setReviews] = useState(false);
 
+  const getReviews = async () => {
+    const result = await api("GETREVIEWSBYID", { id: id });
+    setReviews(result);
+  };
+
   useEffect(() => {
-    async function getReviews() {
-      const result = await api("GETREVIEWSBYID", { id: id });
-      setReviews(result);
-    }
     getReviews();
   }, []);
 
   return (
-    <div className="individualReview">
+    <div className="container">
       {reviews &&
         reviews.map((review) => (
-          <React.Fragment key={review._id}>
-            <div className="viewingDate">{review.dateReviewed}</div>
-            <div className="location">
-              {review.location ? "Cinema" : "Home"}
+          <article key={review._id}>
+            <div className="columns">
+              <div className="column">
+                Review date: {formatDate(review.dateReviewed)}
+              </div>
+              <div className="column">
+                Location:
+                {review.location ? " Cinema" : " Home"}
+              </div>
             </div>
-            <div className="rating">{review.rating}</div>
-            <div className="review">{review.review}</div>
-          </React.Fragment>
+            <div className="columns">
+              <div className="column">{review.review}</div>
+            </div>
+          </article>
         ))}
-      {reviews.length === 0 && (
-        <>
-          <p>No reviews to display!</p>
-        </>
-      )}
     </div>
   );
 };

@@ -22,7 +22,7 @@ const FilmDisplay = () => {
   }, [filmStore, searchTerm]);
 
   return (
-    <main>
+    <>
       <div className="columns is-multiline">
         {filteredFilms.map((film) => (
           <React.Fragment key={film._id}>
@@ -36,7 +36,7 @@ const FilmDisplay = () => {
         )}
       </div>
       {/* <Timeline /> */}
-    </main>
+    </>
   );
 };
 

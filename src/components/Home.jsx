@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import FilmDisplay from "./films/FilmDisplay";
-import Header from "./Header";
 
 import api from "../api";
 import { useDispatch } from "react-redux";
@@ -20,10 +19,10 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <main>
       <SearchBar />
       <FilmDisplay />
-    </>
+    </main>
   );
 };
 

@@ -4,13 +4,12 @@ import { addClickedFilmId } from "../../features/tracker/trackerSlice";
 import FilmReview from "./FilmReview";
 import { formatDate } from "../../utils";
 import api from "../../api";
-import axios from "axios";
 import { useState } from "react";
 
 const FilmDetails = ({ film }) => {
-  const [filmCount, setFilmCount] = useState(0);
-
   const dispatch = useDispatch();
+  const [filmCount, setFilmCount] = useState(0);
+  const [averageRating, setAverageRating] = useState(0);
 
   const onClickClose = async () => {
     dispatch(addClickedFilmId(null));
@@ -53,6 +52,12 @@ const FilmDetails = ({ film }) => {
       setFilmCount(result);
     }
     getFilmCount();
+
+    async function getFilmRating() {
+      const result = await api("GETFILMRATING", { id: film.id });
+      setAverageRating(result);
+    }
+    getFilmRating();
   }, []);
 
   return (
@@ -61,7 +66,7 @@ const FilmDetails = ({ film }) => {
       <div className="modal-background" onClick={onClickClose}></div>
       <div className="modal-card">
         <header className="modal-card-head">
-          <p className="modal-card-title">{film.title}</p>
+          <div className="modal-card-title">{film.title}</div>
           <button
             className="delete"
             aria-label="close"
@@ -69,13 +74,23 @@ const FilmDetails = ({ film }) => {
           ></button>
         </header>
         <section className="modal-card-body">
-          <div>Released: {formatDate(film.release_date)}</div>
-          <div>Overview: {film.overview}</div>
-          <div className="starContainer">{createRating(film.rating)}</div>
+          <div className="block">Released: {formatDate(film.release_date)}</div>
+          <div className="block">Overview: {film.overview}</div>
+          <div className="columns">
+            <div className="column">
+              Last watched: {formatDate(film.dateWatched)}
+            </div>
+            <div className="column">Times watched: {filmCount}</div>
+          </div>
+          <div className="columns is-vcentered">
+            <p className="column">Average Rating: {averageRating}/10.</p>
+            <div className="column starContainer">
+              {createRating(averageRating)}
+            </div>
+          </div>
           <FilmReview id={film.id} />
         </section>
         <footer className="modal-card-foot">
-          <button className="button is-success">Save changes</button>
           <button className="button" onClick={onClickClose}>
             Close
           </button>
