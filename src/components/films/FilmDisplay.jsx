@@ -23,7 +23,7 @@ const FilmDisplay = () => {
 
   return (
     <main>
-      <div className="filmContainer">
+      <div className="columns is-multiline">
         {filteredFilms.map((film) => (
           <React.Fragment key={film._id}>
             <FilmTile film={film} />

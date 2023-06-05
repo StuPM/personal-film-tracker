@@ -5,6 +5,7 @@ import Header from "./Header";
 import api from "../api";
 import { useDispatch } from "react-redux";
 import { setFilmStore } from "../features/tracker/trackerSlice";
+import SearchBar from "./SearchBar";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const Home = () => {
 
   return (
     <>
-      <Header />
+      <SearchBar />
       <FilmDisplay />
     </>
   );

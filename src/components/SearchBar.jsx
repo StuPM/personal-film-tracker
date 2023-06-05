@@ -19,17 +19,27 @@ const SearchBar = () => {
 
   return (
     <>
-      <div className="container">
-        <form onInput={onInput} onSubmit={onSubmit} onReset={onReset}>
-          <input
-            type="text"
-            name="searchBar"
-            id="searchBar"
-            placeholder="Search..."
-          />
-          <button type="reset">X</button>
-        </form>
-      </div>
+      {/* <div className="container"> */}
+      <form onInput={onInput} onSubmit={onSubmit} onReset={onReset}>
+        <div className="field is-horizontal">
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              name="searchBar"
+              id="searchBar"
+              placeholder="Search..."
+            />
+          </div>
+          <div className="control">
+            <button className="button" type="reset">
+              X
+            </button>
+          </div>
+        </div>
+        <div className="field"></div>
+      </form>
+      {/* </div> */}
     </>
   );
 };

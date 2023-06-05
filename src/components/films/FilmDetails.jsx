@@ -56,18 +56,49 @@ const FilmDetails = ({ film }) => {
   }, []);
 
   return (
-    <div className="filmDetails">
-      <div className="container">
-        <h2 className="title">{film.title}</h2>
-        <div>Released: {formatDate(film.release_date)}</div>
-        <div>Overview: {film.overview}</div>
-        <FilmReview id={film.id} />
-        <div className="starContainer">{createRating(film.rating)}</div>
-        <button className="closeFilmDetails" onClick={onClickClose}>
-          X
-        </button>
+    // <>
+    <div className="modal is-active">
+      <div className="modal-background" onClick={onClickClose}></div>
+      <div className="modal-card">
+        <header className="modal-card-head">
+          <p className="modal-card-title">{film.title}</p>
+          <button
+            className="delete"
+            aria-label="close"
+            onClick={onClickClose}
+          ></button>
+        </header>
+        <section className="modal-card-body">
+          <div>Released: {formatDate(film.release_date)}</div>
+          <div>Overview: {film.overview}</div>
+          <div className="starContainer">{createRating(film.rating)}</div>
+          <FilmReview id={film.id} />
+        </section>
+        <footer className="modal-card-foot">
+          <button className="button is-success">Save changes</button>
+          <button className="button" onClick={onClickClose}>
+            Close
+          </button>
+        </footer>
       </div>
     </div>
+    // </>
+
+    //   <div className="column model is-active">
+    //     <div className="container">
+    //       <h2 className="title">{film.title}</h2>
+    //       <div className="subtitle is-4">
+    //         Released: {formatDate(film.release_date)}
+    //       </div>
+    //       <div className="subtitle is-4">Overview: {film.overview}</div>
+    //       <div className="starContainer">{createRating(film.rating)}</div>
+    //       <FilmReview id={film.id} />
+
+    //       <button className="closeFilmDetails" onClick={onClickClose}>
+    //         X
+    //       </button>
+    //     </div>
+    //   </div>
   );
 };
 

@@ -19,7 +19,7 @@ const FilmTile = ({ film }) => {
 
   return (
     <React.Fragment key={film._id}>
-      <div className="filmTile" onClick={onClick}>
+      <div className="column is-one-third" onClick={onClick}>
         <img src={poster} alt="Film poster" />
       </div>
       {clickedFilmId === film.id && <FilmDetails film={film} />}
