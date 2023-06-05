@@ -6,14 +6,13 @@ import { formatDate } from "../../utils";
 const FilmReview = ({ id }) => {
   const [reviews, setReviews] = useState(false);
 
-  const getReviews = async () => {
-    const result = await api("GETREVIEWSBYID", { id: id });
-    setReviews(result);
-  };
-
   useEffect(() => {
+    const getReviews = async () => {
+      const result = await api("GETREVIEWSBYID", { id: id });
+      setReviews(result);
+    };
     getReviews();
-  }, []);
+  }, [id]);
 
   return (
     <div className="container">

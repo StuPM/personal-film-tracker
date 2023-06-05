@@ -58,7 +58,7 @@ const FilmDetails = ({ film }) => {
       setAverageRating(result);
     }
     getFilmRating();
-  }, []);
+  }, [film.id]);
 
   return (
     // <>
@@ -97,23 +97,6 @@ const FilmDetails = ({ film }) => {
         </footer>
       </div>
     </div>
-    // </>
-
-    //   <div className="column model is-active">
-    //     <div className="container">
-    //       <h2 className="title">{film.title}</h2>
-    //       <div className="subtitle is-4">
-    //         Released: {formatDate(film.release_date)}
-    //       </div>
-    //       <div className="subtitle is-4">Overview: {film.overview}</div>
-    //       <div className="starContainer">{createRating(film.rating)}</div>
-    //       <FilmReview id={film.id} />
-
-    //       <button className="closeFilmDetails" onClick={onClickClose}>
-    //         X
-    //       </button>
-    //     </div>
-    //   </div>
   );
 };
 

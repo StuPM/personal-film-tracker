@@ -9,14 +9,13 @@ import SearchBar from "./SearchBar";
 const Home = () => {
   const dispatch = useDispatch();
 
-  const getDatabaseFilms = async () => {
-    const result = await api("GETFILMSALL");
-    dispatch(setFilmStore(result));
-  };
-
   useEffect(() => {
+    const getDatabaseFilms = async () => {
+      const result = await api("GETFILMSALL");
+      dispatch(setFilmStore(result));
+    };
     getDatabaseFilms();
-  }, []);
+  }, [dispatch]);
 
   return (
     <main>

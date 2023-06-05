@@ -17,9 +17,13 @@ const FilmTile = ({ film }) => {
     dispatch(addClickedFilmId(film.id));
   };
 
+  //TODO add in _id to clickedFilmID
   return (
     <React.Fragment key={film._id}>
-      <div className="column is-one-third" onClick={onClick}>
+      <div
+        className="column is-half-mobile is-one-third-tablet is-one-quarter-desktop is-one-fifth-widescreen"
+        onClick={onClick}
+      >
         <img src={poster} alt="Film poster" />
       </div>
       {clickedFilmId === film.id && <FilmDetails film={film} />}
