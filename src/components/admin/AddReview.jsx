@@ -42,36 +42,52 @@ const AddReview = ({ id }) => {
   };
 
   return (
-    <>
+    <div className="block box">
+      <div className="title is-5">Add Review</div>
       <form
         className="addReview"
         onInput={onInputReview}
         onReset={onResetReview}
         onSubmit={onSubmitReview}
       >
-        <div className="watchedContainer">
-          <label htmlFor="dateReviewed">Date reviewed:</label>
-          <input type="date" name="dateReviewed" id="dateReviewed" />
-        </div>
-
-        <div className="locationContainer">
-          HOME
-          <label htmlFor="location" className="switch">
-            <input type="checkbox" id="location" />
-            <span className="slider round"></span>
+        <div className="field is-horizontal">
+          <label className="label field-label" htmlFor="dateReviewed">
+            Date reviewed:
           </label>
-          CINEMA
+          <div className="field-body">
+            <div className="control">
+              <input type="date" name="dateReviewed" id="dateReviewed" />
+            </div>
+          </div>
         </div>
 
-        <label htmlFor="review">Review</label>
-        <textarea name="review" id="review" cols="30" rows="10"></textarea>
+        <div className="field is-horizontal is-grouped">
+          <label className="label field-label">Home</label>
+          <div className="control field-body">
+            <label htmlFor="location" className="switch label">
+              <input type="checkbox" id="location" />
+              <span className="slider round"></span>
+            </label>
+            <label className="label ">Cinema</label>
+          </div>
+        </div>
 
-        <div className="buttonContainer">
-          <button type="reset">Reset</button>
-          <button type="submit">Save</button>
+        <div className="field">
+          <label className="label" htmlFor="review ">
+            Review
+          </label>
+          <div className="control">
+            <textarea className="textarea" name="review" id="review"></textarea>
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="control">
+            <button className="button is-link">Submit</button>
+          </div>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
