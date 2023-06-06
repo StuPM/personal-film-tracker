@@ -1,28 +1,27 @@
 import React, { useEffect } from "react";
-import FilmDisplay from "./films/FilmDisplay";
-import Header from "./Header";
+import OneDisplay from "./films/OneDisplay";
 
 import api from "../api";
 import { useDispatch } from "react-redux";
 import { setFilmStore } from "../features/tracker/trackerSlice";
+import SearchBar from "./SearchBar";
 
 const Home = () => {
   const dispatch = useDispatch();
 
-  const getDatabaseFilms = async () => {
-    const result = await api("GETFILMSALL");
-    dispatch(setFilmStore(result));
-  };
-
   useEffect(() => {
+    const getDatabaseFilms = async () => {
+      const result = await api("GETFILMSALL");
+      dispatch(setFilmStore(result));
+    };
     getDatabaseFilms();
-  }, []);
+  }, [dispatch]);
 
   return (
-    <>
-      <Header />
-      <FilmDisplay />
-    </>
+    <main>
+      <SearchBar />
+      <OneDisplay />
+    </main>
   );
 };
 

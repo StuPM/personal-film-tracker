@@ -6,7 +6,6 @@ async function api(type, payload) {
   switch (type) {
     case "GETREVIEWSBYID": {
       const params = new URLSearchParams(payload);
-      console.log(payload);
       const { data } = await axios.get(`${apiURL}/getReviews`, {
         params,
       });
@@ -29,9 +28,13 @@ async function api(type, payload) {
     }
     case "COUNTFILMSBYID": {
       const params = new URLSearchParams(payload);
-      console.log(payload);
       const { data } = await axios.get(`${apiURL}/countFilmsByID`, { params });
       return data;
+    }
+    case "GETFILMRATING": {
+      const params = new URLSearchParams(payload);
+      const { data } = await axios.get(`${apiURL}/getFilmRating`, { params });
+      return data[0].averageRating;
     }
     case "CALLTMDBAPI": {
       const encodedSearchInput = encodeURI(payload);

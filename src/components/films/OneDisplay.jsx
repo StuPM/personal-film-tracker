@@ -4,11 +4,9 @@ import {
   selectFilmStore,
   selectSearchTerm,
 } from "../../features/tracker/trackerSlice";
-import FilmTile from "./FilmTile";
-import "../styles/FilmDisplay.scss";
-import Timeline from "./Timeline";
+import TwoTile from "./TwoTile";
 
-const FilmDisplay = () => {
+const OneDisplay = () => {
   const filmStore = useSelector(selectFilmStore);
   const searchTerm = useSelector(selectSearchTerm);
   const [filteredFilms, setFilteredFilms] = useState(filmStore);
@@ -22,22 +20,27 @@ const FilmDisplay = () => {
   }, [filmStore, searchTerm]);
 
   return (
-    <main>
-      <div className="filmContainer">
+    <>
+      <div className="columns is-gapless is-multiline is-mobile">
         {filteredFilms.map((film) => (
           <React.Fragment key={film._id}>
-            <FilmTile film={film} />
+            <TwoTile film={film} />
           </React.Fragment>
         ))}
         {filteredFilms.length === 0 && (
-          <>
-            <p>No films to display!</p>
-          </>
+          <div className="column is-half is-offset-one-quarter">
+            <div className="level">
+              <div className="level-item has-text-centered">
+                <div>
+                  <p className="level">No films to display!</p>
+                </div>
+              </div>
+            </div>
+          </div>
         )}
       </div>
-      {/* <Timeline /> */}
-    </main>
+    </>
   );
 };
 
-export default FilmDisplay;
+export default OneDisplay;
