@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import FilmDisplay from "./films/FilmDisplay";
+import OneDisplay from "./films/OneDisplay";
 
 import api from "../api";
 import { useDispatch } from "react-redux";
@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <main>
       <SearchBar />
-      <FilmDisplay />
+      <OneDisplay />
     </main>
   );
 };

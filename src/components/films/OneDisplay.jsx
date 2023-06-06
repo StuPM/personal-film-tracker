@@ -4,9 +4,9 @@ import {
   selectFilmStore,
   selectSearchTerm,
 } from "../../features/tracker/trackerSlice";
-import FilmTile from "./FilmTile";
+import TwoTile from "./TwoTile";
 
-const FilmDisplay = () => {
+const OneDisplay = () => {
   const filmStore = useSelector(selectFilmStore);
   const searchTerm = useSelector(selectSearchTerm);
   const [filteredFilms, setFilteredFilms] = useState(filmStore);
@@ -24,7 +24,7 @@ const FilmDisplay = () => {
       <div className="columns is-gapless is-multiline is-mobile">
         {filteredFilms.map((film) => (
           <React.Fragment key={film._id}>
-            <FilmTile film={film} />
+            <TwoTile film={film} />
           </React.Fragment>
         ))}
         {filteredFilms.length === 0 && (
@@ -43,4 +43,4 @@ const FilmDisplay = () => {
   );
 };
 
-export default FilmDisplay;
+export default OneDisplay;

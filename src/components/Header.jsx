@@ -32,12 +32,11 @@ const Header = () => {
         aria-label="main navigation"
       >
         <div className="navbar-brand">
-          <a className="navbar-item" href="https://bulma.io">
+          <Link className="navbar-item" to="/">
             <img src={logo} width="112" height="28" alt="Logo" />
-          </a>
+          </Link>
 
-          <a
-            role="button"
+          <button
             className={burger ? "navbar-burger is-active" : "navbar-burger"}
             aria-label="menu"
             aria-expanded="false"
@@ -47,7 +46,7 @@ const Header = () => {
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-          </a>
+          </button>
         </div>
 
         <div
@@ -61,7 +60,6 @@ const Header = () => {
             <Link className="navbar-item" to="/about">
               About
             </Link>
-            <a className="navbar-item">Stats</a>
           </div>
 
           <div className="navbar-end">

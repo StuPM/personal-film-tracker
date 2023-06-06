@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import api from "../../api";
 import { formatDate } from "../../utils";
 
-const FilmReview = ({ id }) => {
+const FourReview = ({ id }) => {
   const [reviews, setReviews] = useState(false);
 
   useEffect(() => {
@@ -37,4 +37,4 @@ const FilmReview = ({ id }) => {
   );
 };
 
-export default FilmReview;
+export default FourReview;

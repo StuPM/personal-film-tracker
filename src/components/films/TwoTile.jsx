@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import FilmDetails from "./FilmDetails";
+import ThreeDetails from "./ThreeDetails";
 import {
   addClickedFilmId,
   selectClickedFilmId,
 } from "../../features/tracker/trackerSlice";
 
-const FilmTile = ({ film }) => {
+const TwoTile = ({ film }) => {
   const clickedFilmId = useSelector(selectClickedFilmId);
   const dispatch = useDispatch();
 
@@ -14,10 +14,9 @@ const FilmTile = ({ film }) => {
   const poster = "https://image.tmdb.org/t/p/w342" + film.poster_path;
 
   const onClick = () => {
-    dispatch(addClickedFilmId(film.id));
+    dispatch(addClickedFilmId(film._id + film.id));
   };
 
-  //TODO add in _id to clickedFilmID
   return (
     <React.Fragment key={film._id}>
       <div
@@ -26,9 +25,9 @@ const FilmTile = ({ film }) => {
       >
         <img src={poster} alt="Film poster" />
       </div>
-      {clickedFilmId === film.id && <FilmDetails film={film} />}
+      {clickedFilmId === film._id + film.id && <ThreeDetails film={film} />}
     </React.Fragment>
   );
 };
 
-export default FilmTile;
+export default TwoTile;

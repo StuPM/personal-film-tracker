@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addClickedFilmId } from "../../features/tracker/trackerSlice";
-import FilmReview from "./FilmReview";
+import FourReview from "./FourReview";
 import { formatDate } from "../../utils";
 import api from "../../api";
 import { useState } from "react";
+import ControlledInput from "./ControlledInput";
 
-const FilmDetails = ({ film }) => {
+const ThreeDetails = ({ film }) => {
   const dispatch = useDispatch();
   const [filmCount, setFilmCount] = useState(0);
   const [averageRating, setAverageRating] = useState(0);
@@ -23,20 +24,14 @@ const FilmDetails = ({ film }) => {
       if (index === rating) {
         elements.push(
           <React.Fragment key={index}>
-            <input
-              type="radio"
-              name="rating"
-              id={`rating-${index}`}
-              disabled
-              checked
-            />
+            <ControlledInput name={index} checked={1} />
             <label htmlFor={`rating-${index}`}></label>
           </React.Fragment>
         );
       } else {
         elements.push(
           <React.Fragment key={index}>
-            <input type="radio" name="rating" id={`rating-${index}`} disabled />
+            <ControlledInput name={index} checked={0} />
             <label htmlFor={`rating-${index}`}></label>
           </React.Fragment>
         );
@@ -88,7 +83,7 @@ const FilmDetails = ({ film }) => {
               {createRating(averageRating)}
             </div>
           </div>
-          <FilmReview id={film.id} />
+          <FourReview id={film.id} />
         </section>
         <footer className="modal-card-foot">
           <button className="button" onClick={onClickClose}>
@@ -100,4 +95,4 @@ const FilmDetails = ({ film }) => {
   );
 };
 
-export default FilmDetails;
+export default ThreeDetails;
