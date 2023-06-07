@@ -26,11 +26,7 @@ const Header = () => {
 
   return (
     <header>
-      <nav
-        className="navbar has-shadow "
-        role="navigation"
-        aria-label="main navigation"
-      >
+      <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
             <img src={logo} width="112" height="28" alt="Logo" />

@@ -24,8 +24,14 @@ const Home = () => {
 
   return (
     <main>
-      <SearchBar />
-      <YearPanel />
+      <section className="columns is-vcentered is-mobile m-0">
+        <div className="column">
+          <SearchBar />
+        </div>
+        <div className="column is-narrow">
+          <YearPanel />
+        </div>
+      </section>
       <OneDisplay />
     </main>
   );
