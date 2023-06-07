@@ -5,37 +5,19 @@ const initialState = {
   clickedFilmId: null,
   apiCallResults: null,
   filmStore: [],
-  ratingReviewStore: [
-    {
-      id: 603,
-      viewingDate: "2023-05-16",
-      location: 1, //1 cinema, 0 home
-      review: "This film was top.",
-      rating: 10,
-    },
-    {
-      id: 603,
-      viewingDate: "2023-04-16",
-      location: 1, //1 cinema, 0 home
-      review: "This film was top banna.",
-      rating: 4,
-    },
-  ],
+  clickedYear: new Date().getFullYear(),
 };
 
 export const trackerSlice = createSlice({
   name: "tracker",
   initialState,
   reducers: {
-    // addFilm: (state, action) => {
-    //   state.filmStore = [...state.filmStore, action.payload];
-    // },
     addSearchTerm: (state, action) => {
       //Used in AdminHeader and SearchBar
       state.searchTerm = action.payload;
     },
     addClickedFilmId: (state, action) => {
-      //Used in FileTile
+      //Used in TwoTile
       state.clickedFilmId = action.payload;
     },
     addApiCallResults: (state, action) => {
@@ -45,6 +27,10 @@ export const trackerSlice = createSlice({
     setFilmStore: (state, action) => {
       //Used in Home
       state.filmStore = action.payload;
+    },
+    setClickedYear: (state, action) => {
+      //Used in YearPanel
+      state.clickedYear = action.payload;
     },
   },
 });
@@ -56,6 +42,7 @@ export const {
   addClickedFilmId,
   addApiCallResults,
   setFilmStore,
+  setClickedYear,
 } = trackerSlice.actions;
 
 export const selectFilmStore = (state) => state.tracker.filmStore;
@@ -64,5 +51,6 @@ export const selectClickedFilmId = (state) => state.tracker.clickedFilmId;
 export const selectApiCallResults = (state) => state.tracker.apiCallResults;
 export const selectRatingReviewStore = (state) =>
   state.tracker.ratingReviewStore;
+export const selectClickedYear = (state) => state.tracker.clickedYear;
 
 export default trackerSlice.reducer;

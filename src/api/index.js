@@ -45,6 +45,10 @@ async function api(type, payload) {
 
       return data.results;
     }
+    case "GETDISTINCTYEARS": {
+      const { data } = await axios.get(`${apiURL}/getDistinctYearsWatched`);
+      return data[0].years;
+    }
     default: {
       break;
     }
