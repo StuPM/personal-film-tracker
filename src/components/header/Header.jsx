@@ -6,9 +6,9 @@ import {
   addApiCallResults,
   addClickedFilmId,
   addSearchTerm,
-} from "../features/tracker/trackerSlice";
+} from "../../features/tracker/trackerSlice";
 import { useState } from "react";
-import logo from "../assets/SPM.png";
+import logo from "../../assets/SPM.png";
 
 const Header = () => {
   const dispatch = useDispatch();

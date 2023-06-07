@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import SearchBar from "../SearchBar";
+import SearchBar from "../header/SearchBar";
 import {
   addApiCallResults,
   selectSearchTerm,

@@ -8,7 +8,7 @@ import {
   selectClickedYear,
 } from "../../features/tracker/trackerSlice";
 
-const YearPanel = () => {
+const YearSelector = () => {
   const dispatch = useDispatch();
   const [distinctYears, setDistinctYears] = useState([]);
   const [dropdown, setDropDown] = useState(false);
@@ -33,7 +33,11 @@ const YearPanel = () => {
 
   return (
     <>
-      <div className={dropdown ? "dropdown is-active" : "dropdown"}>
+      <div
+        className={
+          dropdown ? "dropdown is-active is-right" : "dropdown is-right"
+        }
+      >
         <div className="dropdown-trigger">
           <button
             className="button"
@@ -74,4 +78,4 @@ const YearPanel = () => {
   );
 };
 
-export default YearPanel;
+export default YearSelector;

@@ -1,5 +1,5 @@
 import React from "react";
-import { addSearchTerm } from "../features/tracker/trackerSlice";
+import { addSearchTerm } from "../../features/tracker/trackerSlice";
 import { useDispatch } from "react-redux";
 import Icon from "@mdi/react";
 import { mdiMagnify } from "@mdi/js";

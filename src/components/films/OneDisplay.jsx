@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import {
   selectFilmStore,
   selectSearchTerm,
+  selectClickedYear,
 } from "../../features/tracker/trackerSlice";
 import TwoTile from "./TwoTile";
 
@@ -10,6 +11,9 @@ const OneDisplay = () => {
   const filmStore = useSelector(selectFilmStore);
   const searchTerm = useSelector(selectSearchTerm);
   const [filteredFilms, setFilteredFilms] = useState(filmStore);
+  const clickedYear = useSelector(selectClickedYear);
+
+  console.log(filmStore);
 
   useEffect(() => {
     setFilteredFilms(
@@ -21,6 +25,7 @@ const OneDisplay = () => {
 
   return (
     <>
+      <div className="title">{clickedYear}</div>
       <div className="columns is-gapless is-multiline is-mobile">
         {filteredFilms.map((film) => (
           <React.Fragment key={film._id}>

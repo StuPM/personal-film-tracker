@@ -7,8 +7,7 @@ import {
   selectClickedYear,
   setFilmStore,
 } from "../features/tracker/trackerSlice";
-import SearchBar from "./SearchBar";
-import YearPanel from "./misc/YearPanel";
+import SearchAndYear from "./header/SearchAndYear";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -24,14 +23,7 @@ const Home = () => {
 
   return (
     <main>
-      <section className="columns is-vcentered is-mobile m-0">
-        <div className="column">
-          <SearchBar />
-        </div>
-        <div className="column is-narrow">
-          <YearPanel />
-        </div>
-      </section>
+      <SearchAndYear />
       <OneDisplay />
     </main>
   );
