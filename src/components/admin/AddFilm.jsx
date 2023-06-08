@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import api from "../../api";
 
-const AddFilm = ({ film }) => {
-  const [newFilm, setNewFilm] = useState({ ...film });
+const AddFilm = ({ film, closeAfterClick }) => {
+  const [newFilm, setNewFilm] = useState({ ...film, location: false });
 
   const onInputFilm = (e) => {
     let newFilmData;
@@ -12,6 +12,11 @@ const AddFilm = ({ film }) => {
         ...newFilm,
         rating: Number(e.target.id.substring(e.target.id.indexOf("-") + 1)),
       };
+    } else if (e.target.id === "location") {
+      newFilmData = {
+        ...newFilm,
+        [e.target.id]: e.target.checked ? true : false,
+      }; //True = Cinema, False = Home
     } else {
       newFilmData = { ...newFilm, [e.target.id]: e.target.value };
     }
@@ -22,7 +27,16 @@ const AddFilm = ({ film }) => {
   const onSubmitFilm = async (e) => {
     //TODO Validate data before submit
     e.preventDefault();
-    const result = await api("ADDFILM", newFilm);
+    if (
+      newFilm.hasOwnProperty("location") &&
+      newFilm.hasOwnProperty("rating") &&
+      newFilm.hasOwnProperty("dateWatched")
+    ) {
+      await api("ADDFILM", newFilm);
+      closeAfterClick();
+    } else {
+      console.log("Missing something.");
+    }
   };
 
   return (
@@ -68,6 +82,17 @@ const AddFilm = ({ film }) => {
                 <label htmlFor="rating-1"></label>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="field is-horizontal is-grouped">
+          <label className="label field-label">Home</label>
+          <div className="control field-body">
+            <label htmlFor="location" className="switch label">
+              <input type="checkbox" id="location" />
+              <span className="slider round"></span>
+            </label>
+            <label className="label ">Cinema</label>
           </div>
         </div>
 

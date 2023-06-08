@@ -17,6 +17,7 @@ const YearSelector = () => {
   useEffect(() => {
     const getDistinctYears = async () => {
       const result = await api("GETDISTINCTYEARS");
+      //TODO cover if no data
       setDistinctYears(result.sort((a, b) => b - a));
     };
     getDistinctYears();

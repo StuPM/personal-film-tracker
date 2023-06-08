@@ -31,8 +31,8 @@ const AdminFilmDetails = ({ film }) => {
             </div>
             <div className="block">Overview: {film.overview}</div>
 
-            <AddFilm film={film} />
-            <AddReview id={film.id} />
+            <AddFilm film={film} closeAfterClick={onClickClose} />
+            <AddReview id={film.id} closeAfterClick={onClickClose} />
           </section>
           <footer className="modal-card-foot">
             <button className="button" onClick={onClickClose}>
