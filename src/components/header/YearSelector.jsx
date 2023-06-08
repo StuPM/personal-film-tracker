@@ -27,7 +27,6 @@ const YearSelector = () => {
   };
 
   const captureClickedYear = (e) => {
-    console.log(e.target.id);
     dispatch(setClickedYear(Number(e.target.id)));
   };
 

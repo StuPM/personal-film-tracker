@@ -23,7 +23,6 @@ const AddFilm = ({ film }) => {
     //TODO Validate data before submit
     e.preventDefault();
     const result = await api("ADDFILM", newFilm);
-    console.log(result);
   };
 
   return (

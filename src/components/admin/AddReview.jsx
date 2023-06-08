@@ -35,10 +35,7 @@ const AddReview = ({ id }) => {
       review.hasOwnProperty("id")
     ) {
       const result = await api("ADDREVIEW", review);
-      console.log(result);
     }
-
-    console.log(review);
   };
 
   return (
