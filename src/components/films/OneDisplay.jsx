@@ -27,8 +27,8 @@ const OneDisplay = () => {
     let currentMonth = new Date().getMonth();
     let elements = [
       <>
-        <div className="title">{clickedYear}</div>
-        <div className="column is-full title">
+        <div className="column is-full title yearMonth">{clickedYear}</div>
+        <div className="column is-full title yearMonth">
           {getStringMonth(currentMonth)}
         </div>
       </>,
@@ -42,7 +42,7 @@ const OneDisplay = () => {
           currentMonth = filmDate;
           elements.push(
             <>
-              <div className="column is-full">
+              <div className="column is-full title yearMonth">
                 {getStringMonth(currentMonth)}
               </div>
             </>
