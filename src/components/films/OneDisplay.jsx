@@ -6,14 +6,14 @@ import {
   selectClickedYear,
 } from "../../features/tracker/trackerSlice";
 import TwoTile from "./TwoTile";
+import { getStringMonth } from "../../utils";
 
 const OneDisplay = () => {
   const filmStore = useSelector(selectFilmStore);
   const searchTerm = useSelector(selectSearchTerm);
-  const [filteredFilms, setFilteredFilms] = useState(filmStore);
   const clickedYear = useSelector(selectClickedYear);
 
-  console.log(filmStore);
+  const [filteredFilms, setFilteredFilms] = useState(filmStore);
 
   useEffect(() => {
     setFilteredFilms(
@@ -23,15 +23,43 @@ const OneDisplay = () => {
     );
   }, [filmStore, searchTerm]);
 
+  const createfilms = () => {
+    let currentMonth = new Date().getMonth();
+    let elements = [
+      <React.Fragment key={currentMonth}>
+        <div className="column is-full title yearMonth">{clickedYear}</div>
+        <div className="column is-full title yearMonth">
+          {getStringMonth(currentMonth)}
+        </div>
+      </React.Fragment>,
+    ];
+
+    filteredFilms.map((film) => {
+      const filmDate = new Date(film.dateWatched).getMonth();
+
+      if (filmDate !== currentMonth) {
+        currentMonth = filmDate;
+        elements.push(
+          <React.Fragment key={currentMonth}>
+            <div className="column is-full title yearMonth">
+              {getStringMonth(currentMonth)}
+            </div>
+          </React.Fragment>
+        );
+      }
+      elements.push(
+        <React.Fragment key={film._id}>
+          <TwoTile film={film} />
+        </React.Fragment>
+      );
+    });
+
+    return elements;
+  };
   return (
     <>
-      <div className="title">{clickedYear}</div>
       <div className="columns is-gapless is-multiline is-mobile">
-        {filteredFilms.map((film) => (
-          <React.Fragment key={film._id}>
-            <TwoTile film={film} />
-          </React.Fragment>
-        ))}
+        {filteredFilms.length > 0 && createfilms()}
         {filteredFilms.length === 0 && (
           <div className="column is-half is-offset-one-quarter">
             <div className="level">

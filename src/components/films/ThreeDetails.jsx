@@ -76,6 +76,9 @@ const ThreeDetails = ({ film }) => {
               Last watched: {formatDate(film.dateWatched)}
             </div>
             <div className="column">Times watched: {filmCount}</div>
+            <div className="column">
+              Watched at: {film.location ? "Cinema" : "Home"}
+            </div>
           </div>
           <div className="columns is-vcentered">
             <p className="column">Average Rating: {averageRating}/10.</p>

@@ -2,20 +2,11 @@ import React, { useState } from "react";
 import "../styles/Admin.scss";
 import api from "../../api";
 
-const AddReview = ({ id }) => {
-  const [review, setReview] = useState({ id: id, location: false });
+const AddReview = ({ id, closeAfterClick }) => {
+  const [review, setReview] = useState({ id: id });
 
   const onInputReview = (e) => {
-    let newReviewData;
-
-    if (e.target.id === "location") {
-      newReviewData = {
-        ...review,
-        [e.target.id]: e.target.checked ? true : false,
-      }; //True = Cinema, False = Home
-    } else {
-      newReviewData = { ...review, [e.target.id]: e.target.value };
-    }
+    let newReviewData = { ...review, [e.target.id]: e.target.value };
 
     setReview(newReviewData);
   };
@@ -29,16 +20,15 @@ const AddReview = ({ id }) => {
     e.preventDefault();
     if (
       review.hasOwnProperty("dateReviewed") &&
-      review.hasOwnProperty("location") &&
       review.hasOwnProperty("rating") &&
       review.hasOwnProperty("review") &&
       review.hasOwnProperty("id")
     ) {
-      const result = await api("ADDREVIEW", review);
-      console.log(result);
+      await api("ADDREVIEW", review);
+      closeAfterClick();
+    } else {
+      console.log("Missing something.");
     }
-
-    console.log(review);
   };
 
   return (
@@ -58,17 +48,6 @@ const AddReview = ({ id }) => {
             <div className="control">
               <input type="date" name="dateReviewed" id="dateReviewed" />
             </div>
-          </div>
-        </div>
-
-        <div className="field is-horizontal is-grouped">
-          <label className="label field-label">Home</label>
-          <div className="control field-body">
-            <label htmlFor="location" className="switch label">
-              <input type="checkbox" id="location" />
-              <span className="slider round"></span>
-            </label>
-            <label className="label ">Cinema</label>
           </div>
         </div>
 
