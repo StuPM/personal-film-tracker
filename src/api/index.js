@@ -1,8 +1,10 @@
 import axios from "axios";
-import { apiURL } from "../utils";
 // TODO Change the case to a type/enum
 
 async function api(type, payload) {
+  // TODO HIDE
+  const apiURL = "https://api.trackmyfilms.co.uk";
+
   switch (type) {
     case "GETREVIEWSBYID": {
       const params = new URLSearchParams(payload);

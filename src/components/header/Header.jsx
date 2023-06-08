@@ -28,7 +28,7 @@ const Header = () => {
     <header>
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <Link className="navbar-item" to="/">
+          <Link className="navbar-item" to="/" onClick={onClickResetStore}>
             <img src={logo} width="112" height="28" alt="Logo" />
           </Link>
 
@@ -56,16 +56,6 @@ const Header = () => {
             <Link className="navbar-item" to="/about">
               About
             </Link>
-          </div>
-
-          <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="buttons">
-                <Link className="button is-light" to="/admin">
-                  Admin
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </nav>

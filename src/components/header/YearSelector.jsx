@@ -28,7 +28,7 @@ const YearSelector = () => {
   };
 
   const captureClickedYear = (e) => {
-    dispatch(setClickedYear(Number(e.target.id)));
+    if (Number(+e.target.id > 0)) dispatch(setClickedYear(Number(e.target.id)));
   };
 
   return (
