@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import {
   selectFilmStore,
   selectSearchTerm,
-  selectClickedYear,
 } from "../../features/tracker/trackerSlice";
 import TwoTile from "./TwoTile";
 import { getStringMonth } from "../../utils";
@@ -11,8 +10,6 @@ import { getStringMonth } from "../../utils";
 const OneDisplay = () => {
   const filmStore = useSelector(selectFilmStore);
   const searchTerm = useSelector(selectSearchTerm);
-  const clickedYear = useSelector(selectClickedYear);
-
   const [filteredFilms, setFilteredFilms] = useState(filmStore);
 
   useEffect(() => {
@@ -24,15 +21,8 @@ const OneDisplay = () => {
   }, [filmStore, searchTerm]);
 
   const createfilms = () => {
-    let currentMonth = new Date().getMonth();
-    let elements = [
-      <React.Fragment key={currentMonth}>
-        <div className="column is-full title yearMonth">{clickedYear}</div>
-        <div className="column is-full title yearMonth">
-          {getStringMonth(currentMonth)}
-        </div>
-      </React.Fragment>,
-    ];
+    let currentMonth = 13;
+    let elements = [];
 
     filteredFilms.map((film) => {
       const filmDate = new Date(film.dateWatched).getMonth();

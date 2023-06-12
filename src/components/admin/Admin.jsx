@@ -20,12 +20,12 @@ const Admin = () => {
   return (
     <>
       <AdminHeader />
-      <div className="filmContainer">
+      <div className="columns is-gapless is-multiline is-mobile">
         {apiCallResults &&
           apiCallResults.map((film) => (
             <React.Fragment key={film.id}>
               <div
-                className="filmTile"
+                className="column is-half-mobile is-one-third-tablet is-one-quarter-desktop is-one-fifth-widescreen"
                 onClick={() => {
                   onClick(film);
                 }}
