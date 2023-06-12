@@ -77,7 +77,10 @@ const ThreeDetails = ({ film }) => {
             </div>
             <div className="column">Times watched: {filmCount}</div>
             <div className="column">
-              Watched at: {film.location ? "Cinema" : "Home"}
+              Watched at:{" "}
+              <div className="tag is-info">
+                {film.location ? "Cinema" : "Home"}
+              </div>
             </div>
           </div>
           <div className="columns is-vcentered">

@@ -34,7 +34,7 @@ const About = () => {
             The website itself was built using the React framework, with
             functional components. React Router is used to control navigation
             through the website, such as setting the URL on this About page.
-            Certain piecies of information is then stored locally, such as
+            Certain pieces of information is then stored locally, such as
             controlling what film details to display or the search term inputted
             by the user.
           </div>

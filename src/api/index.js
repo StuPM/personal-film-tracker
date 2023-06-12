@@ -2,7 +2,6 @@ import axios from "axios";
 // TODO Change the case to a type/enum
 
 async function api(type, payload) {
-  // TODO HIDE
   const apiURL = "https://api.trackmyfilms.co.uk";
 
   switch (type) {

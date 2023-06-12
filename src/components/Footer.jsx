@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="footer">
@@ -11,6 +11,7 @@ const Footer = () => {
           <div>Designed by me, Stuart Paul McGee.</div>
         </a>
         <div>&copy; 2023</div>
+        <Link to="/admin">⭐</Link>
       </div>
     </footer>
   );
