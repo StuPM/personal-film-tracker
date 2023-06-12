@@ -4,7 +4,8 @@ View an interactive list of all the films that I have watched recently. With rev
 
 ## Live link TBC
 
-[Personal Film Tracker TBC](https://simpsons-quotes-spm.netlify.app).
+- [Personal Film Tracker](https://trackmyfilms.co.uk/).
+- [Backend GitHub Repository](https://github.com/StuPM/personal-film-tracker-backend)
 
 ## Features TBC
 
@@ -13,18 +14,22 @@ When the webpage loads, a number of film posters will appear. This is a list of 
 By clicking on a film poster you can view:
 
 - Details about the film, such as release date and synopsis of the film.
-- Where appropriate, a review, rating and viewing history will appear.
+- A rating and viewing history for each film.
+- And where appropriate, a review for the film.
 
 ## Technology Stack
 
-- React
-  - Built using functional components.
-- Redux
-  - Storing data in the local state.
-- API
-  - Pulling film details from the TheMovieDB API by using AXIOS.
-- Databases
-  - Film database is initially connected to in the home component, this pulls in the films and stores in the redux state for local.
+- [React](https://react.dev/)
+  - Using functional components to create the website.
+  - With [React Router](https://reactrouter.com/) to access different parts of the website and set the URL.
+- [Redux](https://react-redux.js.org/)
+  - For storing data in the local state used to control the website.
+- [AXIOS](https://axios-http.com/)
+  - Used to connect to both the TheMovieDB API and my personal backend API created to connect to the database.
+- [MongoDB NoSQL](https://www.mongodb.com/)
+  - With film and review data being stored in a NoSQL DB, that is then accessed via an API.
+  - The results from these API calls are what is used to create the website.
+  - For more information please see the backend GitHub repository linked above.
 - HTML5, CSS3 and JavaScript.
 
 ## Author
