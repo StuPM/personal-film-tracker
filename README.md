@@ -2,7 +2,7 @@
 
 View an interactive list of all the films that I have watched recently. With reviews and ratings provided by myself and film details provided by [TheMovieDB](https://www.themoviedb.org/) API.
 
-## Live link TBC
+## Live link
 
 - [Personal Film Tracker](https://trackmyfilms.co.uk/).
 - [Backend GitHub Repository](https://github.com/StuPM/personal-film-tracker-backend)
