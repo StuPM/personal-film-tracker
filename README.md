@@ -7,7 +7,7 @@ View an interactive list of all the films that I have watched recently. With rev
 - [Personal Film Tracker](https://trackmyfilms.co.uk/).
 - [Backend GitHub Repository](https://github.com/StuPM/personal-film-tracker-backend)
 
-## Features TBC
+## Features
 
 When the webpage loads, a number of film posters will appear. This is a list of films that I have watched, appearing in chronological order.
 
