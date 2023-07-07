@@ -28,13 +28,9 @@ const Header = () => {
     <header>
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <img
-            className="navbar-item"
-            src={logo}
-            width="112"
-            height="28"
-            alt="SPM - My personal film tracker logo."
-          />
+          <Link className="navbar-item" to="/" onClick={onClickResetStore}>
+            <img src={logo} width="112" height="28" alt="Logo" />
+          </Link>
 
           <button
             className={burger ? "navbar-burger is-active" : "navbar-burger"}
