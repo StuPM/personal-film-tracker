@@ -30,6 +30,7 @@ const SearchBar = () => {
         <div className="field has-addons has-addons-centered is-expanded">
           <div className="control has-icons-left is-expanded">
             <input
+              aria-label="Film title input box"
               className="input"
               type="text"
               name="searchBar"

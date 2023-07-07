@@ -17,11 +17,12 @@ const YearSelector = () => {
   useEffect(() => {
     const getDistinctYears = async () => {
       const result = await api("GETDISTINCTYEARS");
-      //TODO cover if no data
       setDistinctYears(result.sort((a, b) => b - a));
     };
     getDistinctYears();
   }, []);
+
+  useEffect(() => {}, [dropdown]);
 
   const dropdownClick = () => {
     setDropDown(!dropdown);
@@ -29,6 +30,7 @@ const YearSelector = () => {
 
   const captureClickedYear = (e) => {
     if (Number(+e.target.id > 0)) dispatch(setClickedYear(Number(e.target.id)));
+    dropdownClick();
   };
 
   return (
@@ -54,8 +56,9 @@ const YearSelector = () => {
         <div
           className="dropdown-menu"
           id="dropdown-menu"
-          role="menu"
-          onClick={captureClickedYear}
+          onClick={(e) => {
+            captureClickedYear(e);
+          }}
         >
           <div className="dropdown-content">
             {distinctYears.map((year) => (

@@ -23,7 +23,7 @@ const TwoTile = ({ film }) => {
         className="column is-half-mobile is-one-third-tablet is-one-quarter-desktop is-one-fifth-widescreen"
         onClick={onClick}
       >
-        <img src={poster} alt="Film poster" />
+        <img src={poster} alt={film.title + " film poster."} />
       </div>
       {clickedFilmId === film._id + film.id && <ThreeDetails film={film} />}
     </React.Fragment>
