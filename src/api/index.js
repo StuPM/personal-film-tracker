@@ -2,7 +2,7 @@ import axios from "axios";
 // TODO Change the case to a type/enum
 
 async function api(type, payload) {
-  const apiURL = "https://api.trackmyfilms.co.uk";
+  const apiURL = "https://unpleasant-michaeline-stuartpm-352329e7.koyeb.app";
 
   switch (type) {
     case "GETREVIEWSBYID": {
